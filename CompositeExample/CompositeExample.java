@@ -1,3 +1,4 @@
+package CompositeExample;
 import java.util.ArrayList;
 
 class Text {
@@ -35,13 +36,29 @@ class TextCharacter extends TextComponent {
 
 
 class TextComposite extends TextComponent {
-    public char character;
-    public ArrayList<TextComposite> group;
+    char character;
+    ArrayList<TextComposite> group;
     String color;
 
     public TextComposite() {
         group = new ArrayList<>();
         color = "BLACK";
+    }
+
+    public void setCharacter(char aChar) {
+        character = aChar;
+    }
+
+    public char getCharacter() {
+        return character;
+    }
+
+    public void add(TextComposite child) {
+        group.add(child);
+    }
+
+    public TextComposite getChild(int index) {
+        return group.get(index);
     }
 
     public void setColor(String newColor) {
@@ -53,7 +70,7 @@ class TextComposite extends TextComponent {
 
     public void print(int depth) {
         if (Character.valueOf(character) != 0)
-            System.out.println(depth + " : " + character + " is " + color);
+            System.out.println("[" + depth + "]" + " : " + character + " is " + color);
         
         for (TextComposite child : group) {
             child.print(depth + 1);
@@ -83,23 +100,30 @@ class CompositeExample {
         TextComposite charFive = new TextComposite();        
         charFive.character = 'F';
         
-        TextComposite wordOne = new TextComposite();
-        wordOne.group.add(charFour);
-        wordOne.group.add(charFive);
-        lineOne.group.add(wordOne);
+        TextComposite groupOne = new TextComposite();
+        groupOne.group.add(charFour);
+        groupOne.group.add(charFive);
+        lineOne.group.add(groupOne);
 
         lineOne.group.add(charOne);
         lineOne.group.add(charTwo);
         lineOne.group.add(charThree);
-
+        lineOne.group.add(groupOne);
+        
         aPage.group.add(lineOne);
-        // aPage.print(0);
+        aPage.print(0);
+        System.out.println();
         
         charOne.setColor("RED");
-        // aPage.print(0);
-        
-        lineOne.setColor("GREEN");
         aPage.print(0);
+        System.out.println();
 
+        groupOne.setColor("BLUE");
+        aPage.print(0);
+        System.out.println();
+
+        aPage.setColor("GREEN");
+        aPage.print(0);        
+        System.out.println();
     }
 }
