@@ -1,3 +1,5 @@
+package AbstractFactoryExample;
+
 interface HotDrink {
 	void consume();
 }

@@ -3,10 +3,10 @@ package CommandExample;
 import java.util.Stack;
 
 abstract class Shape {
-	protected RenderBridge renderBridge;
+	protected RendererBridge rendererBridge;
 
-	protected Shape(RenderBridge renderBridge) {
-		this.renderBridge = renderBridge;
+	protected Shape(RendererBridge rendererBridge) {
+		this.rendererBridge = rendererBridge;
 	}
 
 	public abstract void draw();
@@ -16,13 +16,13 @@ abstract class Shape {
 class Circle extends Shape {
 	public float radiusX, radiusY;
 
-	Circle(RenderBridge renderBridge) {
-		super(renderBridge);
+	Circle(RendererBridge rendererBridge) {
+		super(rendererBridge);
 	}
 
 	@Override
 	public void draw() {
-		renderBridge.renderCircle(radiusX, radiusY);
+		rendererBridge.renderCircle(radiusX, radiusY);
 	}
 
 	@Override
@@ -35,13 +35,13 @@ class Circle extends Shape {
 class Rectangle extends Shape {
 	public float sideX, sideY;
 
-	Rectangle(RenderBridge renderBridge) {
-		super(renderBridge);
+	Rectangle(RendererBridge rendererBridge) {
+		super(rendererBridge);
 	}
 
 	@Override
 	public void draw() {
-		renderBridge.renderRect(sideX, sideY);
+		rendererBridge.renderRect(sideX, sideY);
 	}
 
 	@Override
@@ -51,12 +51,12 @@ class Rectangle extends Shape {
 	}
 }
 
-interface RenderBridge {
+interface RendererBridge {
 	void renderCircle(float radiusX, float radiusY);
 	void renderRect(float sideX, float sideY);
 }
 
-class RasterRendererBridge implements RenderBridge {
+class RasterRendererBridge implements RendererBridge {
 	@Override
 	public void renderCircle(float radiusX, float radiusY) {
 		System.out.println("Drawing a *raster* circle of radius X: " + radiusX + " , Y: " + radiusY);

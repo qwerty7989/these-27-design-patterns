@@ -87,9 +87,7 @@ class RasterRendererBridge implements RenderBridge {
 	@Override
 	public void renderRect(float sideX, float sideY) {
 		System.out.println("Drawing a *raster* rectangle of radius X: " + sideX + " , Y: " + sideY);
-
 	}
-
 }
 
 class VectorRendererBridge implements RenderBridge {
@@ -101,9 +99,7 @@ class VectorRendererBridge implements RenderBridge {
 	@Override
 	public void renderRect(float sideX, float sideY) {
 		System.out.println("Drawing a *vector* rectangle of radius X: " + sideX + " , Y: " + sideY);
-
 	}
-
 }
 
 public class BridgeExample {

@@ -11,7 +11,7 @@ class Text {
 class Word {
     ArrayList<Text> wordText = new ArrayList<>();
     String color;
-    
+
 }
 
 class Sentence {
@@ -71,7 +71,7 @@ class TextComposite extends TextComponent {
     public void print(int depth) {
         if (Character.valueOf(character) != 0)
             System.out.println("[" + depth + "]" + " : " + character + " is " + color);
-        
+
         for (TextComposite child : group) {
             child.print(depth + 1);
         }
@@ -80,26 +80,26 @@ class TextComposite extends TextComponent {
 
 class CompositeExample {
     public static void main(String[] args) {
-        TextComposite aPage = new TextComposite();        
+        TextComposite aPage = new TextComposite();
         aPage.character = 'A';
-        
+
         TextComposite lineOne = new TextComposite();
 
-        TextComposite charOne = new TextComposite();        
+        TextComposite charOne = new TextComposite();
         charOne.character = 'B';
-        
-        TextComposite charTwo = new TextComposite();        
+
+        TextComposite charTwo = new TextComposite();
         charTwo.character = 'C';
 
-        TextComposite charThree = new TextComposite();        
+        TextComposite charThree = new TextComposite();
         charThree.character = 'D';
 
-        TextComposite charFour = new TextComposite();        
+        TextComposite charFour = new TextComposite();
         charFour.character = 'E';
-        
-        TextComposite charFive = new TextComposite();        
+
+        TextComposite charFive = new TextComposite();
         charFive.character = 'F';
-        
+
         TextComposite groupOne = new TextComposite();
         groupOne.group.add(charFour);
         groupOne.group.add(charFive);
@@ -109,11 +109,11 @@ class CompositeExample {
         lineOne.group.add(charTwo);
         lineOne.group.add(charThree);
         lineOne.group.add(groupOne);
-        
+
         aPage.group.add(lineOne);
         aPage.print(0);
         System.out.println();
-        
+
         charOne.setColor("RED");
         aPage.print(0);
         System.out.println();
@@ -123,7 +123,7 @@ class CompositeExample {
         System.out.println();
 
         aPage.setColor("GREEN");
-        aPage.print(0);        
+        aPage.print(0);
         System.out.println();
     }
 }
