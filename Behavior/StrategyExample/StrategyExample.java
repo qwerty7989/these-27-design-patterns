@@ -90,7 +90,7 @@ class TextComposite {
     public void print(int depth) {
         if (Character.valueOf(character) != 0)
             System.out.println(alignment.adjustAlignment() + "[" + depth + "]" + " : " + character + " is " + color);
-        
+
         for (TextComposite child : group) {
             child.print(depth + 1);
         }
@@ -99,26 +99,26 @@ class TextComposite {
 
 class StrategyExample {
     public static void main(String[] args) {
-        TextComposite aPage = new TextComposite();        
+        TextComposite aPage = new TextComposite();
         aPage.character = 'A';
-        
+
         TextComposite lineOne = new TextComposite();
 
-        TextComposite charOne = new TextComposite();        
+        TextComposite charOne = new TextComposite();
         charOne.character = 'B';
-        
-        TextComposite charTwo = new TextComposite(new RightAlignment());        
+
+        TextComposite charTwo = new TextComposite(new RightAlignment());
         charTwo.character = 'C';
 
-        TextComposite charThree = new TextComposite(new RightAlignment());        
+        TextComposite charThree = new TextComposite(new RightAlignment());
         charThree.character = 'D';
 
-        TextComposite charFour = new TextComposite(new CenterAlignment()); 
+        TextComposite charFour = new TextComposite(new CenterAlignment());
         charFour.character = 'E';
-        
-        TextComposite charFive = new TextComposite(new CenterAlignment()); 
+
+        TextComposite charFive = new TextComposite(new CenterAlignment());
         charFive.character = 'F';
-        
+
         TextComposite groupOne = new TextComposite(new CenterAlignment());
         groupOne.group.add(charFour);
         groupOne.group.add(charFive);
@@ -131,7 +131,7 @@ class StrategyExample {
         aPage.group.add(lineOne);
         aPage.print(0);
         System.out.println();
-        
+
         charOne.setColor("RED");
         aPage.print(0);
         System.out.println();
@@ -141,7 +141,7 @@ class StrategyExample {
         System.out.println();
 
         aPage.setColor("GREEN");
-        aPage.print(0);        
+        aPage.print(0);
         System.out.println();
 
     }

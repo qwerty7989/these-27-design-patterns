@@ -80,5 +80,5 @@ class DecoratorExample {
 
         TransparentDecorator newCircle = new TransparentDecorator(new ColorDecorator(new Circle(5), "green"), 50);
         System.out.println(newCircle.info());
-    }    
+    }
 }

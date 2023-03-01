@@ -3,32 +3,32 @@ package MementoExample;
 import java.util.Stack;
 
 interface RendererBridge {
-	void renderCircle(float radiusX, float radiusY);
-	void renderRect(float sideX, float sideY);
+    void renderCircle(float radiusX, float radiusY);
+    void renderRect(float sideX, float sideY);
 }
 
 class RasterRendererBridge implements RendererBridge {
-	@Override
-	public void renderCircle(float radiusX, float radiusY) {
-		System.out.println("Drawing a *raster* circle of radius X: " + radiusX + " , Y: " + radiusY);
-	}
+    @Override
+    public void renderCircle(float radiusX, float radiusY) {
+        System.out.println("Drawing a *raster* circle of radius X: " + radiusX + " , Y: " + radiusY);
+    }
 
-	@Override
-	public void renderRect(float sideX, float sideY) {
-		System.out.println("Drawing a *raster* rectangle of radius X: " + sideX + " , Y: " + sideY);
-	}
+    @Override
+    public void renderRect(float sideX, float sideY) {
+        System.out.println("Drawing a *raster* rectangle of radius X: " + sideX + " , Y: " + sideY);
+    }
 }
 
 class VectorRendererBridge implements RendererBridge {
-	@Override
-	public void renderCircle(float radiusX, float radiusY) {
-		System.out.println("Drawing a *vector* circle of radius X: " + radiusX + " , Y: " + radiusY);
-	}
+    @Override
+    public void renderCircle(float radiusX, float radiusY) {
+        System.out.println("Drawing a *vector* circle of radius X: " + radiusX + " , Y: " + radiusY);
+    }
 
-	@Override
-	public void renderRect(float sideX, float sideY) {
-		System.out.println("Drawing a *vector* rectangle of radius X: " + sideX + " , Y: " + sideY);
-	}
+    @Override
+    public void renderRect(float sideX, float sideY) {
+        System.out.println("Drawing a *vector* rectangle of radius X: " + sideX + " , Y: " + sideY);
+    }
 }
 
 abstract class Shape {
@@ -42,9 +42,9 @@ abstract class Shape {
 }
 
 class Circle extends Shape {
-	public float radiusX, radiusY;
+    public float radiusX, radiusY;
 
-	public Circle(RendererBridge renderer) {
+    public Circle(RendererBridge renderer) {
         super(renderer);
     }
 
@@ -58,7 +58,7 @@ class Circle extends Shape {
         radiusY *= scaleY;
     }
 
-	public CircleMemento resizeMemento(float scaleX, float scaleY) {
+    public CircleMemento resizeMemento(float scaleX, float scaleY) {
         CircleMemento old = new CircleMemento(radiusX, radiusY);
         resize(scaleX, scaleY);
         return old;

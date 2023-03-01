@@ -3,32 +3,32 @@ package SingletonExample;
 import java.util.Stack;
 
 interface RendererBridge {
-	void renderCircle(float radiusX, float radiusY);
-	void renderRect(float sideX, float sideY);
+    void renderCircle(float radiusX, float radiusY);
+    void renderRect(float sideX, float sideY);
 }
 
 class RasterRendererBridge implements RendererBridge {
-	@Override
-	public void renderCircle(float radiusX, float radiusY) {
-		System.out.println("Drawing a *raster* circle of radius X: " + radiusX + " , Y: " + radiusY);
-	}
+    @Override
+    public void renderCircle(float radiusX, float radiusY) {
+        System.out.println("Drawing a *raster* circle of radius X: " + radiusX + " , Y: " + radiusY);
+    }
 
-	@Override
-	public void renderRect(float sideX, float sideY) {
-		System.out.println("Drawing a *raster* rectangle of radius X: " + sideX + " , Y: " + sideY);
-	}
+    @Override
+    public void renderRect(float sideX, float sideY) {
+        System.out.println("Drawing a *raster* rectangle of radius X: " + sideX + " , Y: " + sideY);
+    }
 }
 
 class VectorRendererBridge implements RendererBridge {
-	@Override
-	public void renderCircle(float radiusX, float radiusY) {
-		System.out.println("Drawing a *vector* circle of radius X: " + radiusX + " , Y: " + radiusY);
-	}
+    @Override
+    public void renderCircle(float radiusX, float radiusY) {
+        System.out.println("Drawing a *vector* circle of radius X: " + radiusX + " , Y: " + radiusY);
+    }
 
-	@Override
-	public void renderRect(float sideX, float sideY) {
-		System.out.println("Drawing a *vector* rectangle of radius X: " + sideX + " , Y: " + sideY);
-	}
+    @Override
+    public void renderRect(float sideX, float sideY) {
+        System.out.println("Drawing a *vector* rectangle of radius X: " + sideX + " , Y: " + sideY);
+    }
 }
 
 class Circle extends Shape{
